@@ -1,0 +1,111 @@
+[
+    {
+        "id": "c5331dce16d569d3",
+        "type": "inject",
+        "z": "cee138c0826ae828",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 840,
+        "wires": [
+            [
+                "727773a12708e0e4"
+            ]
+        ]
+    },
+    {
+        "id": "cb375ab0e93c1006",
+        "type": "telegram sender",
+        "z": "cee138c0826ae828",
+        "name": "",
+        "bot": "c8b3dcab2e5c8d03",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 570,
+        "y": 780,
+        "wires": [
+            [
+                "c436bf179b76c38f"
+            ]
+        ]
+    },
+    {
+        "id": "c436bf179b76c38f",
+        "type": "debug",
+        "z": "cee138c0826ae828",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "727773a12708e0e4",
+        "type": "function",
+        "z": "cee138c0826ae828",
+        "name": "Simple Msg",
+        "func": "msg.payload = {\n  chatId: 6310291105,   \n  type: \"message\",\n  content: \"Hello from Node-RED!\"\n};\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 780,
+        "wires": [
+            [
+                "cb375ab0e93c1006"
+            ]
+        ]
+    },
+    {
+        "id": "c8b3dcab2e5c8d03",
+        "type": "telegram bot",
+        "botname": "@VernjetAssistantBot",
+        "usernames": "kirsten",
+        "chatids": "6310291105",
+        "baseapiurl": "",
+        "testenvironment": false,
+        "updatemode": "polling",
+        "pollinterval": 300,
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": 6667,
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbothost": "0.0.0.0",
+        "localbotport": 8443,
+        "publicbotport": 8443,
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    }
+]
